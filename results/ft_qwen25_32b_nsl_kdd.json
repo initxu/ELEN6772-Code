@@ -1,0 +1,82 @@
+[
+  {
+    "model": "FT-Qwen2.5-32B",
+    "accuracy": 0.7369477911646586,
+    "precision_macro": 0.6407407407407407,
+    "recall_macro": 0.5056739648569947,
+    "f1_macro": 0.4635704344997108,
+    "train_time_s": 4368.369648694992,
+    "inference_time_s": 81.5751633644104,
+    "inference_ms_per_sample": 163.80554892451886,
+    "confusion_matrix": [
+      [
+        209,
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        30,
+        111,
+        24,
+        0,
+        0
+      ],
+      [
+        1,
+        6,
+        46,
+        0,
+        0
+      ],
+      [
+        56,
+        3,
+        4,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "per_class": {
+      "normal": {
+        "precision": 0.7037037037037037,
+        "recall": 0.9720930232558139,
+        "f1": 0.81640625
+      },
+      "DoS": {
+        "precision": 0.925,
+        "recall": 0.6727272727272727,
+        "f1": 0.7789473684210526
+      },
+      "Probe": {
+        "precision": 0.575,
+        "recall": 0.8679245283018868,
+        "f1": 0.6917293233082706
+      },
+      "R2L": {
+        "precision": 1.0,
+        "recall": 0.015625,
+        "f1": 0.03076923076923077
+      },
+      "U2R": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "n_samples": 498,
+    "model_id": "Qwen/Qwen2.5-32B-Instruct",
+    "family": "Qwen",
+    "size_label": "32B",
+    "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_qwen25_32b_nsl_kdd",
+    "quantized_4bit": false
+  }
+]

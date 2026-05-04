@@ -1,0 +1,810 @@
+{
+  "NSL-KDD": [
+    {
+      "model": "FT-Qwen2.5-1.5B",
+      "accuracy": 0.7188755020080321,
+      "precision_macro": 0.4762238353232725,
+      "recall_macro": 0.45102291010145334,
+      "f1_macro": 0.4477898332328712,
+      "train_time_s": 397.09633564949036,
+      "inference_time_s": 22.92686176300049,
+      "inference_ms_per_sample": 46.037875026105404,
+      "confusion_matrix": [
+        [
+          212,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          46,
+          116,
+          3,
+          0,
+          0
+        ],
+        [
+          16,
+          7,
+          30,
+          0,
+          0
+        ],
+        [
+          63,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6272189349112426,
+          "recall": 0.986046511627907,
+          "f1": 0.7667269439421338
+        },
+        "DoS": {
+          "precision": 0.943089430894309,
+          "recall": 0.703030303030303,
+          "f1": 0.8055555555555556
+        },
+        "Probe": {
+          "precision": 0.8108108108108109,
+          "recall": 0.5660377358490566,
+          "f1": 0.6666666666666666
+        },
+        "R2L": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "U2R": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n_samples": 498,
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "family": "Qwen",
+      "size_label": "1.5B",
+      "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_qwen25_15b_nsl_kdd"
+    },
+    {
+      "model": "FT-Qwen2.5-7B",
+      "accuracy": 0.748995983935743,
+      "precision_macro": 0.4488990473706778,
+      "recall_macro": 0.4854191764064515,
+      "f1_macro": 0.46103227120024426,
+      "train_time_s": 1258.2068655490875,
+      "inference_time_s": 24.200872659683228,
+      "inference_ms_per_sample": 48.59612983872134,
+      "confusion_matrix": [
+        [
+          209,
+          3,
+          3,
+          0,
+          0
+        ],
+        [
+          23,
+          128,
+          14,
+          0,
+          0
+        ],
+        [
+          10,
+          7,
+          36,
+          0,
+          0
+        ],
+        [
+          60,
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.6920529801324503,
+          "recall": 0.9720930232558139,
+          "f1": 0.8085106382978723
+        },
+        "DoS": {
+          "precision": 0.920863309352518,
+          "recall": 0.7757575757575758,
+          "f1": 0.8421052631578947
+        },
+        "Probe": {
+          "precision": 0.631578947368421,
+          "recall": 0.6792452830188679,
+          "f1": 0.6545454545454545
+        },
+        "R2L": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "U2R": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n_samples": 498,
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "family": "Qwen",
+      "size_label": "7B",
+      "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_qwen25_7b_nsl_kdd"
+    },
+    {
+      "model": "FT-Mistral-7B",
+      "accuracy": 0.7429718875502008,
+      "precision_macro": 0.48055140011125647,
+      "recall_macro": 0.4891005075990266,
+      "f1_macro": 0.4640580196792762,
+      "train_time_s": 1522.7884130477905,
+      "inference_time_s": 35.52661943435669,
+      "inference_ms_per_sample": 71.3385932416801,
+      "confusion_matrix": [
+        [
+          208,
+          0,
+          7,
+          0,
+          0
+        ],
+        [
+          29,
+          123,
+          8,
+          5,
+          0
+        ],
+        [
+          9,
+          6,
+          38,
+          0,
+          0
+        ],
+        [
+          51,
+          0,
+          12,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "normal": {
+          "precision": 0.697986577181208,
+          "recall": 0.9674418604651163,
+          "f1": 0.8109161793372319
+        },
+        "DoS": {
+          "precision": 0.9534883720930233,
+          "recall": 0.7454545454545455,
+          "f1": 0.8367346938775511
+        },
+        "Probe": {
+          "precision": 0.5846153846153846,
+          "recall": 0.7169811320754716,
+          "f1": 0.6440677966101694
+        },
+        "R2L": {
+          "precision": 0.16666666666666666,
+          "recall": 0.015625,
+          "f1": 0.02857142857142857
+        },
+        "U2R": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n_samples": 498,
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "family": "Mistral",
+      "size_label": "7B",
+      "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_mistral_7b_nsl_kdd"
+    }
+  ],
+  "UNSW-NB15": [
+    {
+      "model": "FT-Qwen2.5-1.5B",
+      "accuracy": 0.3528225806451613,
+      "precision_macro": 0.11082852239038851,
+      "recall_macro": 0.14402985074626867,
+      "f1_macro": 0.09368450082735796,
+      "train_time_s": 506.73584723472595,
+      "inference_time_s": 33.43818283081055,
+      "inference_ms_per_sample": 67.41569119115029,
+      "confusion_matrix": [
+        [
+          112,
+          0,
+          112,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          114,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          63,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          33,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          21,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "Normal": {
+          "precision": 0.9411764705882353,
+          "recall": 0.5,
+          "f1": 0.6530612244897959
+        },
+        "Generic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Exploits": {
+          "precision": 0.16710875331564987,
+          "recall": 0.9402985074626866,
+          "f1": 0.28378378378378377
+        },
+        "Fuzzers": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "DoS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Reconnaissance": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Backdoor": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Shellcode": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Worms": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n_samples": 496,
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "family": "Qwen",
+      "size_label": "1.5B",
+      "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_qwen25_15b_unsw_nb15"
+    },
+    {
+      "model": "FT-Qwen2.5-7B",
+      "accuracy": 0.46169354838709675,
+      "precision_macro": 0.10234233851255128,
+      "recall_macro": 0.1640702736318408,
+      "f1_macro": 0.1211607735807289,
+      "train_time_s": 1317.0692653656006,
+      "inference_time_s": 29.470791816711426,
+      "inference_ms_per_sample": 59.416918985305294,
+      "confusion_matrix": [
+        [
+          175,
+          0,
+          45,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          107,
+          0,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          0,
+          52,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          23,
+          0,
+          12,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          0,
+          16,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          17,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "Normal": {
+          "precision": 0.5319148936170213,
+          "recall": 0.78125,
+          "f1": 0.6329113924050633
+        },
+        "Generic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Exploits": {
+          "precision": 0.33766233766233766,
+          "recall": 0.7761194029850746,
+          "f1": 0.47058823529411764
+        },
+        "Fuzzers": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "DoS": {
+          "precision": 0.15384615384615385,
+          "recall": 0.08333333333333333,
+          "f1": 0.10810810810810811
+        },
+        "Reconnaissance": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Backdoor": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Shellcode": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Worms": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n_samples": 496,
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "family": "Qwen",
+      "size_label": "7B",
+      "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_qwen25_7b_unsw_nb15"
+    },
+    {
+      "model": "FT-Mistral-7B",
+      "accuracy": 0.375,
+      "precision_macro": 0.2533937198067633,
+      "recall_macro": 0.1933531746031746,
+      "f1_macro": 0.1612043397928366,
+      "train_time_s": 1373.147866487503,
+      "inference_time_s": 51.17567467689514,
+      "inference_ms_per_sample": 103.17676346148214,
+      "confusion_matrix": [
+        [
+          106,
+          0,
+          102,
+          15,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          114,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          67,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          28,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          24,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          16,
+          0,
+          0,
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "per_class": {
+        "Normal": {
+          "precision": 1.0,
+          "recall": 0.4732142857142857,
+          "f1": 0.6424242424242425
+        },
+        "Generic": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Exploits": {
+          "precision": 0.18611111111111112,
+          "recall": 1.0,
+          "f1": 0.31381733021077285
+        },
+        "Fuzzers": {
+          "precision": 0.34782608695652173,
+          "recall": 0.2222222222222222,
+          "f1": 0.2711864406779661
+        },
+        "DoS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Reconnaissance": {
+          "precision": 1.0,
+          "recall": 0.23809523809523808,
+          "f1": 0.38461538461538464
+        },
+        "Analysis": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Backdoor": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Shellcode": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "Worms": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "n_samples": 496,
+      "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "family": "Mistral",
+      "size_label": "7B",
+      "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_mistral_7b_unsw_nb15"
+    }
+  ]
+}

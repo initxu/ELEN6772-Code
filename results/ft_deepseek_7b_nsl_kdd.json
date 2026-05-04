@@ -1,0 +1,160 @@
+[
+  {
+    "model": "ZS-DeepSeek-7B",
+    "accuracy": 0.15863453815261044,
+    "precision_macro": 0.10147783251231526,
+    "recall_macro": 0.2009659090909091,
+    "f1_macro": 0.08619343951060014,
+    "train_time_s": 0.0,
+    "inference_time_s": 65.53836917877197,
+    "inference_ms_per_sample": 131.6031509613895,
+    "confusion_matrix": [
+      [
+        0,
+        5,
+        0,
+        210,
+        0
+      ],
+      [
+        0,
+        24,
+        0,
+        141,
+        0
+      ],
+      [
+        0,
+        25,
+        0,
+        28,
+        0
+      ],
+      [
+        0,
+        9,
+        0,
+        55,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    "per_class": {
+      "normal": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "DoS": {
+        "precision": 0.38095238095238093,
+        "recall": 0.14545454545454545,
+        "f1": 0.21052631578947367
+      },
+      "Probe": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "R2L": {
+        "precision": 0.12643678160919541,
+        "recall": 0.859375,
+        "f1": 0.22044088176352705
+      },
+      "U2R": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "n_samples": 498,
+    "model_id": "deepseek-ai/deepseek-llm-7b-chat",
+    "family": "DeepSeek",
+    "size_label": "7B"
+  },
+  {
+    "model": "FT-DeepSeek-7B",
+    "accuracy": 0.43172690763052207,
+    "precision_macro": 0.08634538152610441,
+    "recall_macro": 0.2,
+    "f1_macro": 0.120617110799439,
+    "train_time_s": 1872.0088040828705,
+    "inference_time_s": 53.60218000411987,
+    "inference_ms_per_sample": 107.63489960666642,
+    "confusion_matrix": [
+      [
+        215,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        165,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        53,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        64,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "per_class": {
+      "normal": {
+        "precision": 0.43172690763052207,
+        "recall": 1.0,
+        "f1": 0.603085553997195
+      },
+      "DoS": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "Probe": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "R2L": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "U2R": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "n_samples": 498,
+    "model_id": "deepseek-ai/deepseek-llm-7b-chat",
+    "family": "DeepSeek",
+    "size_label": "7B",
+    "adapter_dir": "/mnt/samsung4t/xll/Class/ELEN6772/results/lora_ft_deepseek_7b_nsl_kdd",
+    "quantized_4bit": false
+  }
+]

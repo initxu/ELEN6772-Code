@@ -1,0 +1,80 @@
+[
+  {
+    "model": "ZS-Qwen2.5-32B",
+    "accuracy": 0.42369477911646586,
+    "precision_macro": 0.5938028169014085,
+    "recall_macro": 0.532393527198266,
+    "f1_macro": 0.41598058040010216,
+    "train_time_s": 0.0,
+    "inference_time_s": 73.70173120498657,
+    "inference_ms_per_sample": 147.99544418672002,
+    "confusion_matrix": [
+      [
+        160,
+        0,
+        55,
+        0,
+        0
+      ],
+      [
+        6,
+        2,
+        146,
+        11,
+        0
+      ],
+      [
+        5,
+        0,
+        48,
+        0,
+        0
+      ],
+      [
+        29,
+        0,
+        35,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "per_class": {
+      "normal": {
+        "precision": 0.8,
+        "recall": 0.7441860465116279,
+        "f1": 0.7710843373493976
+      },
+      "DoS": {
+        "precision": 1.0,
+        "recall": 0.012121212121212121,
+        "f1": 0.023952095808383235
+      },
+      "Probe": {
+        "precision": 0.16901408450704225,
+        "recall": 0.9056603773584906,
+        "f1": 0.28486646884273
+      },
+      "R2L": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "U2R": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "n_samples": 498,
+    "model_id": "Qwen/Qwen2.5-32B-Instruct",
+    "family": "Qwen",
+    "size_label": "32B"
+  }
+]

@@ -1,0 +1,918 @@
+{
+  "experiment": "explainability",
+  "dataset": "unsw_nb15",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "mode": "finetuned",
+  "adapter": "lora_ft_qwen25_7b_unsw_nb15",
+  "n_samples": 100,
+  "accuracy": 0.32,
+  "macro_f1": 0.09432025450689288,
+  "category_counts": {
+    "incorrect_with_reasoning": 68,
+    "correct_with_reasoning": 32
+  },
+  "total_inference_time_s": 209.6953685283661,
+  "avg_inference_time_s": 2.096953685283661,
+  "samples": [
+    {
+      "sample_idx": 0,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may include brief handshakes or small data exchanges.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.831848382949829,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 1,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, no signs of unusual activity like high packet loss or significant load differences, and no indications of attacks or reconnaissance activities.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.5588417053222656,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 2,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may include brief handshakes or small data exchanges.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.2729690074920654,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 3,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may include brief handshakes or small data exchanges that do not indicate any malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.4722363948822021,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 4,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), which is typical for network scanning activities where the scanner sends packets to the target but does not expect or receive many responses. Additionally, the high source packet count (src_packets=2) and the presence of TTL values (src_ttl=254, dst_ttl=0) suggest probing behavior characteristic of reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.8141279220581055,
+      "true_label": "Exploits",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 5,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as balanced packet exchange between source and destination (src_packets=18, dst_packets=18), similar mean packet sizes (src_mean_pkt_size=253, dst_mean_pkt_size=136), and no unusual patterns that would suggest malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 2.131396770477295,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 6,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high number of source packets (src_packets=5060) and a significant difference in mean packet sizes (src_mean_pkt_size=1328 vs dst_mean_pkt_size=44), which is indicative of an exploit attempt where the attacker is likely sending malformed or oversized packets to test for vulnerabilities. Additionally, the ct_srv_src value of 1 suggests this is a repeated source IP to the same service, which is common in exploit attempts.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.153461217880249,
+      "true_label": "Exploits",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 7,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, along with very low byte counts and no suspicious activity that would indicate an attack or reconnaissance. The low packet and byte counts suggest normal, brief communication rather than an attack or malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.8579027652740479,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 8,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and no packets received by the destination, indicating normal, low-volume network activity rather than any suspicious or malicious behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.278130292892456,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 9,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high number of packets sent from the source (14) to the destination (12) with a significant difference in mean packet sizes (src_mean_pkt_size=238 vs dst_mean_pkt_size=57), which is indicative of an exploit attempt where the attacker is probing for vulnerabilities by sending malformed or unexpected data.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.3117241859436035,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 10,
+      "raw_output": "Category: Exploits\nReasoning: The record shows a high rate of packets (54.74638 packets/second) and significant differences in packet sizes between source and destination (src_mean_pkt_size=78 vs dst_mean_pkt_size=360), which are indicative of an exploit attempt where the attacker is probing for vulnerabilities by sending malformed or unexpected data packets.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.3399834632873535,
+      "true_label": "Exploits",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 11,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may occur during brief idle periods or small data exchanges.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.2730157375335693,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 12,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may include brief handshakes or small data exchanges.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.2775299549102783,
+      "true_label": "Analysis",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 13,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, no unusual protocols or services, and standard packet and byte counts. The lack of any flags indicating an attack or exploitation attempt further supports this classification.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.5639863014221191,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 14,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), high source packet count (src_packets=2), and a low destination TTL (dst_ttl=0), which are indicative of network scanning behavior. Additionally, the high source packet loss (src_loss=1) and the presence of a count field (ct_srv_src=9) suggest that this is likely part of a reconnaissance activity to gather information about the network.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.9147987365722656,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 15,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high number of packets sent from the source (src_packets=34) to the destination (dst_packets=26) with a significant difference in mean packet sizes (src_mean_pkt_size=695 vs dst_mean_pkt_size=78), which is indicative of an exploit attempt where the attacker is likely sending malformed or unexpected data to test for vulnerabilities.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.505676507949829,
+      "true_label": "Exploits",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 16,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a low packet loss (4%), relatively short inter-packet times, and no unusual activity levels or patterns that would suggest an attack or exploitation attempt.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.4697141647338867,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 17,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a balanced packet exchange between source and destination, no unusual loss rates, and standard inter-packet times. The values for TTL, packet sizes, and other metrics do not indicate any suspicious or malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.7797999382019043,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 18,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), which is indicative of network scanning where the source sends packets to the destination but does not expect or receive responses. Additionally, the high source packet count (src_packets=4) and the presence of TTL values (src_ttl=254, dst_ttl=0) suggest that this is likely a form of network reconnaissance or scanning activity.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.7595839500427246,
+      "true_label": "Backdoor",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 19,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), which is typical for scanning activities where the source sends packets to the target but does not receive many responses. Additionally, the high count of similar connections from the same source IP (ct_srv_src=12) suggests repeated scanning attempts, which is characteristic of reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.369061231613159,
+      "true_label": "Fuzzers",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 20,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may occur during brief communication or idle periods.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.2105200290679932,
+      "true_label": "Exploits",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 21,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows multiple packets exchanged between source and destination with significant differences in packet sizes and interpacket times, which is indicative of network scanning behavior. Additionally, the low TTL values (254 and 252) suggest that the packets are being routed through many hops, which is common in reconnaissance activities to gather information about the network topology.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.2736904621124268,
+      "true_label": "Fuzzers",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 22,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), high source packet and byte counts, and multiple scanning-related fields like ct_srv_src (7) indicating source server occurrences and ct_state_ttl (2) which could indicate TTL-based scanning techniques, suggesting network reconnaissance activity.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.080684185028076,
+      "true_label": "Exploits",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 23,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as balanced packet counts between source and destination, no unusual loss rates, and normal inter-packet times. The values for TTL, packet sizes, and other metrics do not indicate any suspicious or malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.7617509365081787,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 24,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3663856983184814,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 25,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high packet difference between source and destination (src_packets=6, dst_packets=2), which is indicative of an attempt to exploit a vulnerability. Additionally, the significant difference in mean packet sizes (src_mean_pkt_size=166, dst_mean_pkt_size=43) and the presence of 'ct_state_ttl=3' suggest that this traffic is probing for a specific condition or vulnerability, consistent with exploitation attempts.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.882700204849243,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 26,
+      "raw_output": "Category: Exploits\nReasoning: The record shows a source packet count (src_packets) of 1 and a destination packet count (dst_packets) of 0, along with a non-zero source mean packet size (src_mean_pkt_size=46). These characteristics suggest an attempt to exploit a vulnerability by sending crafted packets to the destination, which is typical of exploit attempts.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.2625651359558105,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 27,
+      "raw_output": "Category: DoS\nReasoning: The network record shows a significant imbalance in packet and byte counts between source and destination (src_packets=38, dst_packets=204, src_bytes=2004, dst_bytes=263720), along with high loss rates at the destination (dst_loss=100) and very high load values (dst_load=1002070.063). These characteristics are indicative of a Denial of Service (DoS) attack, where the attacker sends a large volume of packets to overwhelm the target system's resources.",
+      "parsed_label": "DoS",
+      "inference_time_s": 3.6132068634033203,
+      "true_label": "Worms",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 28,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), which is typical for network scanning activities where the scanner sends packets to the target but does not expect or receive many responses. Additionally, the high source packet count (src_packets=2) and the presence of TTL values (src_ttl=254, dst_ttl=0) suggest probing behavior characteristic of reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.6320784091949463,
+      "true_label": "Exploits",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 29,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high packet loss (src_loss=2, dst_loss=1) and significant differences in mean packet sizes (src_mean_pkt_size=252, dst_mean_pkt_size=45), which are indicative of an exploit attempt where the attacker is probing for vulnerabilities by sending malformed or unexpected packets.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.1369247436523438,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 30,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.338277816772461,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 31,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, no indication of exploitation or malicious activity, and standard packet and byte counts between source and destination. The lack of anomalies in fields like TTL values, packet sizes, and loss rates further supports this classification.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.847364902496338,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 32,
+      "raw_output": "Category: Exploits\nReasoning: The record shows multiple packets exchanged between source and destination with non-standard protocol values and unusual packet sizes, which are indicative of an attempt to exploit vulnerabilities. The high rate of packets and the specific values in the 'ct' fields also suggest a pattern consistent with exploitation activities.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 1.8236191272735596,
+      "true_label": "Backdoor",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 33,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or unusual behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3623833656311035,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 34,
+      "raw_output": "Category: Exploits\nReasoning: The record shows a high number of packets exchanged between source and destination (src_packets=10, dst_packets=8) with a relatively short duration (duration=0.815378), which is indicative of an attempt to exploit a vulnerability. Additionally, the difference in mean packet sizes (src_mean_pkt_size=84, dst_mean_pkt_size=137) and the presence of flags like ct_srv_src=6 and ct_state_ttl=1 suggest an active probing or exploitation attempt.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.1894516944885254,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 35,
+      "raw_output": "Category: Exploits\nReasoning: The record shows a high source packet count (src_packets=2) with a very short duration (duration=8e-06), which is indicative of an attempt to exploit a vulnerability. Additionally, the destination packet count (dst_packets=0) and bytes (dst_bytes=0) being zero suggest that no response was sent back, which is consistent with an exploitation attempt where the attacker is probing for a specific vulnerability.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.680190086364746,
+      "true_label": "Analysis",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 36,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, including balanced packet exchange between source and destination, similar mean packet sizes, and no unusual patterns that would suggest malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.2223396301269531,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 37,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows characteristics typical of network scanning, such as multiple packets sent from source to destination (src_packets=10, dst_packets=8) and low inter-packet times (src_interpacket_time=45.340667, dst_interpacket_time=52.354), which are often indicative of port scanning activities. Additionally, the high number of connections from the same source (ct_srv_src=11) further supports this classification.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.972003221511841,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 38,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or unusual behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.4714076519012451,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 39,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), high source packet and byte counts, and frequent occurrences (ct_srv_src=13) which are typical of network reconnaissance activities where attackers scan for open ports or services without receiving many responses.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 1.9097752571105957,
+      "true_label": "Shellcode",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 40,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, including a short duration, normal packet and byte counts, and no unusual patterns or high rates that would suggest an attack or malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3273918628692627,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 41,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as balanced packet counts between source and destination (122 vs 126), similar mean packet sizes (64 vs 120), and no unusual flags or patterns that would indicate malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.8086466789245605,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 42,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high rate of packets (20.184545) and a significant difference in packet sizes between source and destination (src_mean_pkt_size=57 vs dst_mean_pkt_size=185), which is indicative of an exploit attempt where the attacker is probing for vulnerabilities by sending malformed or unexpected data packets.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.44557523727417,
+      "true_label": "Exploits",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 43,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows high source packet transmission (src_packets=2) with a large source mean packet size (src_mean_pkt_size=1025), which is indicative of network scanning behavior. Additionally, the destination fields show no response (dst_packets=0, dst_bytes=0), which is typical for reconnaissance activities where the attacker is probing the network without receiving any responses. The ct_srv_src and ct_state_ttl fields also suggest repeated connections to the same source and TTL values, further supporting this classification.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 3.126587152481079,
+      "true_label": "Worms",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 44,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a small number of packets exchanged between source and destination, no unusual packet sizes or rates, and no signs of malicious activity like those seen in attacks or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.6361851692199707,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 45,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high packet difference between source and destination (src_packets=32, dst_packets=16), along with a large discrepancy in byte sizes (src_bytes=28508, dst_bytes=850), which is indicative of an attempt to exploit a vulnerability or test for a buffer overflow condition. Additionally, the high rate of packets (rate=83.437038) and the significant difference in mean packet sizes further support this classification.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.0570080280303955,
+      "true_label": "Fuzzers",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 46,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high number of packets sent from source to destination (src_packets=10 vs dst_packets=6) with a significant difference in mean packet sizes (src_mean_pkt_size=53 vs dst_mean_pkt_size=45), which could indicate an attempt to exploit a vulnerability by sending malformed or unexpected data. Additionally, the high rate of packets (rate=22.002362) and the presence of unusual TTL values (src_ttl=254, dst_ttl=252) suggest an active probing for potential weaknesses in the system.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.783414840698242,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 47,
+      "raw_output": "Category: Exploits\nReasoning: The record shows a high rate of packets (333,333.3215 packets/second), which is unusual and indicative of an attempt to exploit a vulnerability. Additionally, the non-zero `src_load` value (1034666624.0) suggests that the source is generating a significant amount of data, which is consistent with exploitation activities.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.5471456050872803,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 48,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high volume of packets in both directions (src_packets=26, dst_packets=72) with a significant difference in byte sizes (src_bytes=1222, dst_bytes=72474), which is indicative of an exploit attempt where the attacker is likely sending a payload to exploit a vulnerability on the target system. Additionally, the ct_srv_src, ct_state_ttl, and ct_dst_ltm flags being set to 1 suggest that this traffic is part of a known exploit pattern or signature.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.6155524253845215,
+      "true_label": "Exploits",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 49,
+      "raw_output": "Category: Exploits\nReasoning: The record shows \"ct_dst_ltm=1\" which indicates that the destination is a load balancer or a load management system. Additionally, the high rate of packets (19.546697) and the presence of SYN-ACK time being 0.0 suggest an attempt to exploit a vulnerability, likely related to a misconfiguration or a known exploit against load balancing systems.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.575594663619995,
+      "true_label": "Reconnaissance",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 50,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may include brief handshakes or small data exchanges.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.2654054164886475,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 51,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as equal source and destination packets (2 each), no loss, and low inter-packet times. The protocol and service values do not indicate any known attack patterns, and there are no signs of unusual activity that would suggest an attack or exploit.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.9495913982391357,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 52,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low packet counts (src_packets=1, dst_packets=0) and zero bytes transferred (dst_bytes=0), which is typical for network scanning activities. Additionally, the presence of non-zero values in ct_srv_src (1), ct_state_ttl (2), and ct_dst_ltm (1) suggests that this might be part of a larger set of reconnaissance activities, possibly identifying open ports or services on the target system.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.91235613822937,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 53,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3320839405059814,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 54,
+      "raw_output": "Category: Exploits\nReasoning: The record shows multiple packets exchanged between source and destination with significant differences in packet sizes (src_mean_pkt_size=56 vs dst_mean_pkt_size=44) and unusual TTL values (src_ttl=254, dst_ttl=252), which are indicative of an attempt to exploit a vulnerability or test system limits, typical of exploitation activities.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.1728081703186035,
+      "true_label": "Reconnaissance",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 55,
+      "raw_output": "Category: Normal\nReasoning: The network record shows normal traffic characteristics with no signs of malicious activity. The low duration, similar packet counts and byte sizes between source and destination, and the absence of any unusual flags or patterns that would indicate an attack make this appear as normal network traffic.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.8845851421356201,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 56,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or unusual behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3724792003631592,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 57,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or unusual behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3044090270996094,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 58,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows an unusually high difference in packet sizes between source and destination (src_mean_pkt_size=71 vs dst_mean_pkt_size=1285) and a very low RTT (tcp_rtt=0.054392), which could indicate an attempt to exploit a vulnerability by sending malformed packets or probing for a response that indicates a specific condition or version of software. Additionally, the ct_srv_src, ct_state_ttl, and ct_dst_ltm flags being set to 1 suggest that this traffic is part of a pattern that has been observed before, possibly indicating repeated attempts to exploit services.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 4.088990211486816,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 59,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high rate of packets (84.684949 packets/second) and a significant difference in packet sizes (src_mean_pkt_size=510 vs dst_mean_pkt_size=45), which is indicative of an exploit attempt where the attacker is likely injecting or testing payloads to find system vulnerabilities.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.15946626663208,
+      "true_label": "Exploits",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 60,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet count (dst_packets=0) and bytes (dst_bytes=0), which is typical for scanning activities where the source sends packets to check for active hosts or services without receiving many responses. Additionally, the high rate of packets (rate=83333.33039) and the presence of TTL values (src_ttl=254, dst_ttl=0) suggest network reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 3.016339063644409,
+      "true_label": "Fuzzers",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 61,
+      "raw_output": "Category: Exploits\nReasoning: The record shows multiple packets exchanged between source and destination with significant differences in packet sizes (src_mean_pkt_size=48 vs dst_mean_pkt_size=167), which is indicative of an exploit attempt where the attacker is probing for vulnerabilities by sending malformed or unexpected data. Additionally, the presence of ct_srv_src=1, ct_state_ttl=1, and ct_dst_ltm=1 suggests that this traffic is part of a larger pattern of suspicious activity, further supporting the classification as an exploit attempt.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.2786717414855957,
+      "true_label": "Exploits",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 62,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high number of packets sent from source to destination (src_packets=10 vs dst_packets=6) with a significant difference in mean packet sizes (src_mean_pkt_size=53 vs dst_mean_pkt_size=45), which could indicate an attempt to exploit a vulnerability by sending malformed or unexpected data. Additionally, the high rate of packets (rate=19.300847) and the low TTL values (src_ttl=254, dst_ttl=252) suggest a rapid propagation that is characteristic of exploitation attempts.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.698502540588379,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 63,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.1985580921173096,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 64,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may include brief handshakes or small data exchanges that do not indicate any malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.644300937652588,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 65,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or unusual behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3749642372131348,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 66,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low packet counts and bytes exchanged between source and destination, with most fields indicating no actual data transfer or significant activity, which is characteristic of network scanning behavior. The high rate of packets per second and the presence of 'ct_srv_src' and 'ct_state_ttl' values suggest repeated scans or probes, typical of reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.1216232776641846,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 67,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), which is typical for scanning activities where the source sends packets to the target but does not receive many responses. Additionally, the high source packet count (src_packets=2) and the presence of TTL values (src_ttl=254, dst_ttl=0) suggest that this is likely network reconnaissance or scanning activity.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.849931240081787,
+      "true_label": "Exploits",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 68,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows a high number of source packets (src_packets=2) sent to the destination with zero response packets (dst_packets=0), which is indicative of network scanning behavior. Additionally, the ct_srv_src value of 15 suggests multiple connections from the same source to different services, a common characteristic of reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.143632411956787,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 69,
+      "raw_output": "Category: Exploits\nReasoning: The record shows a high rate of packets from the source to the destination (12.645354), which is unusual and could indicate an attempt to exploit a vulnerability. Additionally, the ct_srv_src value is 1, suggesting this might be a repeated source for similar activities, often seen in exploitation attempts.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.094999074935913,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 70,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), which is typical for scanning activities where the source sends packets to the target but does not receive many responses. Additionally, the high rate of packets (71,428.57 per second) and the presence of source TTL (Time To Live) values suggest network reconnaissance or scanning behavior.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.62736177444458,
+      "true_label": "Shellcode",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 71,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.348559856414795,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 72,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as balanced packet counts between source and destination, no unusual loss rates, and normal inter-packet times. The values for TTL, packet sizes, and other metrics do not indicate any suspicious or malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.704620599746704,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 73,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may occur during brief idle periods or small data exchanges.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3404924869537354,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 74,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, no unusual packet or byte counts, and no signs of malicious activity like high load values or repeated connections to the same source.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.4463222026824951,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 75,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows high values for source packets (src_packets=2) and source bytes (src_bytes=168), which are typical of scanning activities. Additionally, the destination packets (dst_packets=0) and destination bytes (dst_bytes=0) being zero, along with the low number of connections to the same source IP (ct_srv_src=2) and the same destination IP (ct_dst_ltm=1), suggest that this is likely network reconnaissance or scanning activity.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 3.066704034805298,
+      "true_label": "Reconnaissance",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 76,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, including a short duration, relatively low packet and byte counts, and no unusual flags or patterns that would suggest malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3012731075286865,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 77,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3985576629638672,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 78,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.346053123474121,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 79,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with no packets sent to the destination and zero bytes transferred, which is typical for normal network traffic that may include brief handshakes or small data exchanges that do not indicate any malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.4600133895874023,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 80,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or reconnaissance.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.1829683780670166,
+      "true_label": "Generic",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 81,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, no unusual protocols or services, and packet counts and sizes that do not indicate any malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.4233970642089844,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 82,
+      "raw_output": "Category: Exploits\nReasoning: The record shows characteristics indicative of an exploitation attempt, such as the presence of \"ct_srv_src=1,\" \"ct_state_ttl=1,\" and \"ct_dst_ltm=1,\" which suggest the network is detecting or responding to a potential exploit or vulnerability attempt. Additionally, the high packet loss and non-standard protocol values could be signs of an exploit activity.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.3595216274261475,
+      "true_label": "Fuzzers",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 83,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), which is typical for network scanning activities where the scanner sends packets to the target but does not expect or receive many responses. Additionally, the high source packet count (src_packets=2) and the presence of TTL values (src_ttl=254, dst_ttl=0) suggest probing behavior characteristic of reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.7133960723876953,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 84,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high rate of packets (15.690609) and a significant difference in packet sizes between source and destination (src_mean_pkt_size=218 vs dst_mean_pkt_size=57), which is indicative of an exploit attempt where the attacker is probing for vulnerabilities by sending malformed or unexpected data packets.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.4091875553131104,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 85,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high rate of packets (33.56 packets per second), unusual inter-packet times, and low TTL values which can indicate an attempt to exploit a vulnerability or probe for system weaknesses. The high packet loss and significant differences in mean packet sizes between source and destination also suggest an exploit attempt.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.021019458770752,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 86,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or unusual behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.483567476272583,
+      "true_label": "Reconnaissance",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 87,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high number of packets exchanged (src_packets=14, dst_packets=12) with a low inter-packet time (src_interpacket_time=78.694385, dst_interpacket_time=91.052906), which is indicative of an attempt to exploit a vulnerability by rapidly sending data to test or trigger a response from the target system. Additionally, the ct_srv_src value of 3 suggests multiple source connections to the same server, which is often seen in exploitation attempts.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 3.4953975677490234,
+      "true_label": "Fuzzers",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 88,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, equal number of packets sent and received, and no unusual load or loss values that would indicate an attack. The low rate and standard packet sizes further support this classification.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.487863302230835,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 89,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, no unusual packet or byte counts, and no signs of malicious activity like high rates, loss, or specific attack patterns.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.5066018104553223,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 90,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows low destination packet and byte counts (dst_packets=0, dst_bytes=0), high source packet count (src_packets=2), and a low destination mean packet size (dst_mean_pkt_size=0), which are indicative of network reconnaissance activities where the attacker is probing the network to gather information.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.033393144607544,
+      "true_label": "Fuzzers",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 91,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a small number of packets exchanged between source and destination, low byte counts, and no unusual patterns that would suggest malicious activity. The low rate of packets and the absence of flags typically associated with attacks also support this classification.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.7101385593414307,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 92,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, no indication of exploitation or malicious activity, and standard packet and byte counts between source and destination. The lack of anomalies in fields like TTL values, packet sizes, and loss rates further supports this classification.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.9579782485961914,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 93,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, such as a short duration, normal packet sizes, and no unusual patterns that would suggest malicious activity. The low number of packets and bytes exchanged, along with the lack of flags or states indicating an attack, further support this classification.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.7055175304412842,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 94,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high rate of packets (33.801249 packets/second), unusual inter-packet times, and low TTL values which can indicate an attempt to exploit a vulnerability or scan for open ports and services, typical of exploitation activities.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 1.961294174194336,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 95,
+      "raw_output": "Category: Exploits\nReasoning: The network record shows a high number of packets sent from the source (10) to the destination (8), along with large differences in mean packet sizes (178 vs 44 bytes) and unusual TTL values (254 vs 252), which are indicative of an exploit attempt where the attacker is probing for system vulnerabilities or testing the system's response to abnormal packet sizes.",
+      "parsed_label": "Exploits",
+      "inference_time_s": 2.6100852489471436,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 96,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows a low number of packets sent to the destination (dst_packets=0) and a high rate of transmission (rate=333333.3215), which is typical of network scanning activities where the scanner sends out probes to check for open ports or services without receiving many responses back. Additionally, the high source packet loss (src_loss=0) and the presence of TTL values (src_ttl=254, dst_ttl=0) suggest probing behavior characteristic of reconnaissance activities.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 3.202755928039551,
+      "true_label": "Exploits",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 97,
+      "raw_output": "Category: Normal\nReasoning: The network record shows typical characteristics of normal network traffic, including a relatively high number of packets in both directions, normal packet sizes, and no unusual patterns or anomalies that would suggest malicious activity.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.365267038345337,
+      "true_label": "Normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 98,
+      "raw_output": "Category: Normal\nReasoning: The record shows minimal traffic with only two packets sent from the source and none received by the destination, indicating normal, low-volume communication rather than any suspicious activity that would suggest an attack or unusual behavior.",
+      "parsed_label": "Normal",
+      "inference_time_s": 1.3950483798980713,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 99,
+      "raw_output": "Category: Reconnaissance\nReasoning: The record shows multiple packets exchanged between source and destination with significant differences in packet sizes and interpacket times, which is indicative of network scanning behavior. Additionally, the low number of packets sent and received (src_packets=10, dst_packets=8) and the small number of connections to the same source (ct_srv_src=4) support this classification as reconnaissance activity, likely port scanning or service probing.",
+      "parsed_label": "Reconnaissance",
+      "inference_time_s": 2.4987854957580566,
+      "true_label": "Normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    }
+  ]
+}

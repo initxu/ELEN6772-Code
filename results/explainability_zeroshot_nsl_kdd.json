@@ -1,0 +1,918 @@
+{
+  "experiment": "explainability",
+  "dataset": "nsl_kdd",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "mode": "zeroshot",
+  "adapter": null,
+  "n_samples": 100,
+  "accuracy": 0.4,
+  "macro_f1": 0.20527119938884644,
+  "category_counts": {
+    "incorrect_with_reasoning": 60,
+    "correct_with_reasoning": 40
+  },
+  "total_inference_time_s": 169.0494647026062,
+  "avg_inference_time_s": 1.690494647026062,
+  "samples": [
+    {
+      "sample_idx": 0,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as unusual traffic patterns, failed login attempts, or unauthorized access attempts. The fields like `duration`, `src_bytes`, `dst_bytes`, and various rate and count metrics indicate normal network behavior with no clear indicators of an attack or probe.",
+      "parsed_label": "normal",
+      "inference_time_s": 2.5144448280334473,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 1,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `serror_rate`, `srv_serror_rate`, and `dst_host_serror_rate`, which are likely indicative of a probe activity where error rates are abnormally high, possibly due to failed probes or scans. Additionally, the `dst_host_count` is significantly high at 60, suggesting multiple destination hosts were probed, which is characteristic of a probing activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.2351176738739014,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 2,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker may be testing various ports. Additionally, the `dst_host_count` being at its maximum value (255) suggests that the source is scanning a large number of destinations, which is characteristic of a probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.3568220138549805,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 3,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both at 255, indicating a broad scan across many destination hosts and services, which is characteristic of a network probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.4637410640716553,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 4,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"serror_rate\" (0.78) and \"srv_serror_rate\" (0.8), which are indicative of a probe activity where error rates are significantly high, likely due to unsuccessful attempts to connect to various services during a port scan or similar probing activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.8520679473876953,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 5,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker may be testing various ports. Additionally, the `dst_host_count` being at its maximum value (255) suggests that the source is scanning a large number of destinations, which is characteristic of a probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.2922768592834473,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 6,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both at 255, which is indicative of a broad scan or probe activity. Additionally, the `same_srv_rate` is 1.0, suggesting that all connections are to the same service, which is typical of a port scan or IP sweep.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.074930191040039,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 7,
+      "raw_output": "Category: normal\nReasoning: The record shows typical values for a normal network connection, with no indications of an attack. Features such as `logged_in=1`, `num_failed_logins=0`, and the absence of flags like `land=0`, `wrong_fragment=0`, and `urgent=0` suggest a normal connection. Additionally, the low error rates and counts of different services accessed also point towards normal activity.",
+      "parsed_label": "normal",
+      "inference_time_s": 2.3543009757995605,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 8,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `dst_host_count` value of 255, which indicates that the connection is directed at many different hosts, a common characteristic of a network probe or scan. Additionally, the low byte counts (`src_bytes=0`, `dst_bytes=0`) and the presence of flags like `serror_rate` and `rerror_rate` suggest an exploratory nature rather than data transfer, consistent with probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.554680347442627,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 9,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields indicate normal network traffic with typical values for a legitimate connection, such as `logged_in=1`, which suggests an active session, and `same_srv_rate=1.0` indicating that all connections are to the same service type.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.9961121082305908,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 10,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The data suggests this is a typical, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.5473780632019043,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 11,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `dst_host_count` value of 255, which indicates that the connection is directed at many different hosts, a common characteristic of a network probe or scan. Additionally, the `rerror_rate` is 1.0, suggesting that there is a high rate of errors received, which can be indicative of scanning activities where the source may be testing open ports or services by sending packets and observing responses.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.6034934520721436,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 12,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'same_srv_rate' indicate normal usage patterns, suggesting this is a normal, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.5209996700286865,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 13,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `logged_in=1` and no failed logins, compromised accounts, or unusual rates of errors or connections.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.408146619796753,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 14,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 0.8, indicating a significant rate of errors in responses, which is characteristic of a network probe where the attacker is likely testing the system's response times and error handling mechanisms. Additionally, the high `dst_host_count` of 255 suggests that the source is sending packets to a large number of destination hosts, which is typical behavior for a port scan or IP sweep.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.605658769607544,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 15,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"serror_rate\" and \"srv_serror_rate\" at 1.0, which indicate a high rate of errors, often seen in probing activities like port scans. Additionally, the \"dst_host_count\" value is at its maximum (255), suggesting a broad scan across many destinations, typical of a probing activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.246084451675415,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 16,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'serror_rate' are normal, indicating this is likely a legitimate connection with typical network traffic characteristics.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.6342551708221436,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 17,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `logged_in=1` and no failed logins, compromised accounts, or unusual rates of errors or connections.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.228161334991455,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 18,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The high counts for `same_srv_rate` and `dst_host_same_srv_rate` suggest that the traffic is consistent and likely legitimate.",
+      "parsed_label": "normal",
+      "inference_time_s": 2.0808205604553223,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 19,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'serror_rate' are within normal ranges, indicating this is likely a legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.455810785293579,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 20,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'serror_rate' are normal, indicating this is likely a legitimate connection with typical network traffic characteristics.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.653989553451538,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 21,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The high values for `dst_host_count` and `dst_host_srv_count` could indicate a large number of connections, but without other suspicious features, this is likely normal traffic.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.7432639598846436,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 22,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The high same_srv_rate and dst_host_same_srv_rate suggest that the traffic is consistent and within the same service, which is typical for normal network behavior.",
+      "parsed_label": "normal",
+      "inference_time_s": 2.1456289291381836,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 23,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `rerror_rate` (0.67) and `diff_srv_rate` (1.0), which indicate that the traffic is coming from a source that is differentiating between services, a common characteristic of a port scan. Additionally, the high value for `dst_host_count` (255) suggests that the source is scanning multiple destinations, further supporting the probe classification.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.466891288757324,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 24,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"dst_host_count\" (255) and \"dst_host_srv_count\" (254), indicating a large number of destination hosts and services being probed, which is characteristic of a network probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.6205592155456543,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 25,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"dst_host_count\" (255) and \"dst_host_same_srv_rate\" (1.0), which are indicative of a broad scan or probe activity, likely attempting to gather information about the network topology and services.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.4478938579559326,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 26,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `logged_in=1` and no failed logins, compromised accounts, or unusual rates of errors or connections.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.383497714996338,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 27,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as a low number of failed logins, no root shell attempts, and no errors or unusual rates that would suggest an attack.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.4307544231414795,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 28,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both at 255, indicating a large number of destination hosts and services being probed, which is characteristic of a network probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.4782240390777588,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 29,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, which indicates that there were errors in responses to the source, possibly due to a probe or scan. Additionally, the `dst_host_count` is at its maximum value (255), suggesting that the connection was directed to a large number of destination hosts, which is characteristic of a probing activity like a port scan.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.4464268684387207,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 30,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The low byte counts and normal service type also indicate this is likely a normal, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.2057502269744873,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 31,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `duration=0`, which could refer to a very short-lived connection, and `same_srv_rate=1.0` indicating that the traffic is directed to the same service, without any anomalies that would suggest an attack.",
+      "parsed_label": "normal",
+      "inference_time_s": 2.0197136402130127,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 32,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'num_failed_logins' are normal, and there's no indication of an attack or probe activity.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.576289176940918,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 33,
+      "raw_output": "Category: normal\nReasoning: The record shows typical values for a normal network connection, with no indications of an attack. Features such as `logged_in=1`, `num_failed_logins=0`, and the absence of flags like `land=0`, `wrong_fragment=0`, and `urgent=0` suggest a normal connection. Additionally, the low error rates and high same server rate also point towards normal traffic.",
+      "parsed_label": "normal",
+      "inference_time_s": 2.4609482288360596,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 34,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"dst_host_count\" and \"dst_host_srv_count,\" both set to 255, which is an unusual and high number indicating a large number of destinations. This, combined with the \"same_srv_rate\" being 1.0, suggests that the traffic is directed at many different hosts but primarily within the same service, characteristics often seen in network probes like port scans.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.4346203804016113,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 35,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The connection appears to be a normal, legitimate network interaction.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.4656381607055664,
+      "true_label": "U2R",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 36,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"dst_host_count\" and \"dst_host_srv_count,\" both at 255, which is an unusual and likely indicative of a probe activity where the attacker is scanning a large number of hosts and services. Additionally, the \"rerror_rate\" is 0.33, suggesting some level of error or response rate that could be associated with probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.2239129543304443,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 37,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker may be testing various ports. Additionally, the `dst_host_count` being at its maximum value (255) suggests that the source is scanning a large number of destinations, which is characteristic of a probing activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.4583451747894287,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 38,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `count` and `srv_count`, indicating a large number of connections, along with high error rates (`serror_rate=1.0`, `srv_serror_rate=1.0`) which are typical of a probe activity where the attacker is likely scanning for open ports or services on the target system.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.8844377994537354,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 39,
+      "raw_output": "Category: Probe\nReasoning: The record shows a \"service\" value of 44, which corresponds to the HTTP service, and a \"same_srv_rate\" value of 0.02, indicating that the connection is to the same service type but with a very low rate, which is typical of a probing activity. Additionally, the high \"dst_host_count\" value of 255 suggests multiple destination hosts were probed, which is characteristic of a network probe or scan.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.81255841255188,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 40,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `dst_host_count` value of 255, which indicates that the source is attempting to connect to a large number of destination hosts, a characteristic often seen in port scans or IP sweeps used for network surveillance.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.4614670276641846,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 41,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The low byte counts and normal service type also suggest this is a typical, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.3879222869873047,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 42,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"serror_rate\" and \"srv_serror_rate,\" which indicate a high rate of errors, typical of probing activities like port scans. Additionally, the \"dst_host_count\" value is at its maximum (255), suggesting a broad scan across many hosts, which is characteristic of network probing.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.004497766494751,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 43,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both at 255, indicating a large number of destination hosts and services being probed, which is characteristic of a network probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.5258381366729736,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 44,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'serror_rate' are normal, indicating this is likely a legitimate connection with typical network traffic characteristics.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.3821513652801514,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 45,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"dst_host_count\" and \"dst_host_srv_count,\" which are both set to 255, indicating an extensive scan across many destination hosts and services. This is characteristic of a network probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.6152350902557373,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 46,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'serror_rate' are within normal ranges, indicating this is likely a normal, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.5796995162963867,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 47,
+      "raw_output": "Category: normal\nReasoning: The record shows typical values for a normal network connection, with no indications of an attack. Features such as `logged_in=1`, `num_failed_logins=0`, and the absence of flags like `land=0`, `wrong_fragment=0`, and `urgent=0` suggest a normal connection. Additionally, the `same_srv_rate=1.0` indicates that all packets are within the same service, which is consistent with normal traffic patterns.",
+      "parsed_label": "normal",
+      "inference_time_s": 2.780559539794922,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 48,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `logged_in=1` and no failed logins, compromised accounts, or unusual rates of errors or connections.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.2120521068572998,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 49,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The low byte counts and normal service and flags also suggest this is a normal, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.4170691967010498,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 50,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The high `same_srv_rate` and `dst_host_same_srv_rate` suggest that the traffic is consistent and likely legitimate.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.9336724281311035,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 51,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The normal traffic characteristics like logged_in=1 and the high same_srv_rate and dst_host_same_srv_rate suggest this is likely legitimate user traffic.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.91172194480896,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 52,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The normal traffic characteristics like logged_in=1 and the lack of any suspicious counts or rates suggest this is a normal network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.790848970413208,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 53,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'serror_rate' are within normal ranges, indicating this is likely a normal, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.6873512268066406,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 54,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `dst_host_count` value of 255, which indicates that the connection is directed at many different hosts, a common characteristic of a network probe or scan. Additionally, the `rerror_rate` is 1.0, suggesting that there is a high rate of errors on the receiving end, which can be indicative of scanning activities where the source may be sending malformed packets or simply not receiving responses.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.1991729736328125,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 55,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker may be testing various ports. Additionally, the `dst_host_count` being at its maximum value (255) suggests that the connection was made to a large number of destination hosts, which is characteristic of a probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.7158184051513672,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 56,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"dst_host_count\" and \"dst_host_srv_count,\" both at 255, which is indicative of a broad scan or probe activity. Additionally, the \"same_srv_rate\" is 1.0, suggesting that all connections are to the same service, which is typical of scanning activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.4107825756072998,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 57,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The flags and service types also do not indicate any known attack patterns. The high same_srv_rate and dst_host_same_srv_rate suggest that the traffic is consistent and within the same service, which is typical for normal network behavior.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.4757881164550781,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 58,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"serror_rate\" (1.0) and \"same_srv_rate\" (1.0), which are indicative of a probe activity, such as a port scan, where errors are generated and the same service is targeted repeatedly.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.1612632274627686,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 59,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for 'rerror_rate' (1.0) and 'same_srv_rate' (1.0), which are indicative of a probe activity, such as a port scan, where errors are generated and the same service is targeted repeatedly. Additionally, the high 'dst_host_count' (202) and 'dst_host_srv_count' (177) suggest scanning multiple hosts and services, which is characteristic of network surveillance or probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 2.0354626178741455,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 60,
+      "raw_output": "Category: R2L\nReasoning: The presence of 'root_shell=1' and 'num_compromised=1' indicates that this connection might be related to an attempt to gain higher privileges on the system, which is characteristic of a Remote to Local (R2L) attack.",
+      "parsed_label": "R2L",
+      "inference_time_s": 1.1550462245941162,
+      "true_label": "U2R",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 61,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The low values for bytes sent and received, along with normal service and flag values, indicate this is likely a normal, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.093329906463623,
+      "true_label": "Probe",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 62,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for 'rerror_rate' (0.8) and 'dst_host_count' (255), which are indicative of a probe activity where an attacker is likely scanning multiple hosts and ports to gather information about the network.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.0968225002288818,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 63,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker may be testing various ports. Additionally, the `dst_host_count` being at its maximum value (255) suggests an attempt to gather information about the target's network topology, which is characteristic of network surveillance or probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.794219732284546,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 64,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker may be testing various ports. Additionally, the `dst_host_count` being at its maximum value (255) suggests an attempt to gather information about the target's network topology, which is characteristic of network surveillance or probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.8367359638214111,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 65,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"dst_host_count\" (255) and \"dst_host_same_srv_rate\" (1.0), which are indicative of a port scan or IP sweep, common activities in network probing.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.0106968879699707,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 66,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `dst_host_count` (255) and a relatively high `diff_srv_rate` (0.55), which are indicative of a network probe activity, such as an IP sweep or port scan, where the attacker is scanning multiple hosts and services for vulnerabilities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.3229165077209473,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 67,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `dst_host_count` value of 255, indicating that the connection is directed at many different hosts, which is characteristic of a network probe or scan. Additionally, the `rerror_rate` is 1.0, suggesting a high rate of errors, which can be indicative of scanning activities where the source may be testing for open ports or services by sending packets and observing responses.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.799464464187622,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 68,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for 'rerror_rate' (1.0) and 'diff_srv_rate' (1.0), which are indicative of a probe activity, such as a port scan, where errors are received and there is a high rate of differing services being probed.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.291046142578125,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 69,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both at 255, which is indicative of a broad scan or probe activity. Additionally, the `same_srv_rate` is 1.0, suggesting that all connections are to the same service, which is typical of a port scan or IP sweep.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.480710506439209,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 70,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `duration=0` which might be due to a very short-lived connection, and no flags like `land`, `wrong_fragment`, `urgent`, or any other indicating an attack. The absence of failed logins, compromised services, or unusual rates also supports this classification.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.5061001777648926,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 71,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both at 255, indicating a large number of destination hosts and services being probed, which is characteristic of a network probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.0585336685180664,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 72,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"num_compromised\" (1) and \"dst_host_count\" (255), which are indicative of a probing activity where the attacker is likely scanning multiple hosts to identify potential vulnerabilities. Additionally, the \"same_srv_rate\" being 1.0 suggests that all connections are to the same service, which is typical of a port scan or similar probing activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.7320775985717773,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 73,
+      "raw_output": "Category: normal\nReasoning: The record shows typical values for a normal network connection, with no indications of an attack. Features such as `logged_in=1`, `num_failed_logins=0`, and the absence of flags like `land=0`, `wrong_fragment=0`, and `urgent=0` suggest a normal connection. Additionally, the `same_srv_rate=1.0` indicates that all packets are within the same service, which is consistent with normal traffic patterns.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.9711158275604248,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 74,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The low byte counts and normal service type also suggest this is a typical, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 0.966865062713623,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 75,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `same_srv_rate` of 1.0, indicating all connections are to the same service, which is typical for a port scan. Additionally, the `dst_host_count` and `dst_host_srv_count` values being at their maximum (255 and 241 respectively) suggest an attempt to map out services and hosts, consistent with network probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.7187514305114746,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 76,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for 'rerror_rate' (0.94) and 'diff_srv_rate' (1.0), which indicate a significant number of different services are being probed, typical of a network probe activity. Additionally, the 'dst_host_count' value of 255 suggests a broad scan across many hosts, further supporting the classification as a probe.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.6173717975616455,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 77,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `logged_in=1` and no failed logins, compromised accounts, or unusual rates of errors or connections.",
+      "parsed_label": "normal",
+      "inference_time_s": 0.9113509654998779,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 78,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'same_srv_rate' indicate normal usage patterns, suggesting this is a normal, legitimate network connection.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.0788357257843018,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 79,
+      "raw_output": "Category: normal\nReasoning: The record shows typical network traffic characteristics with no signs of malicious activity. The fields such as 'logged_in' (1), absence of failed logins, compromised services, root shells, or unusual error rates suggest this is normal network activity.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.0393495559692383,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 80,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `same_srv_rate` of 1.0, indicating that all connections are to the same service, which is typical for a port scan. Additionally, the `dst_host_count` is at its maximum value of 255, suggesting a broad scan across many hosts, consistent with network probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.4000129699707031,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 81,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker may be testing various ports. Additionally, the `dst_host_count` being at its maximum value (255) suggests that the connection was made to a large number of destination hosts, which is characteristic of a probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.8199892044067383,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 82,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for serror_rate (1.0) and srv_serror_rate (1.0), which are indicative of a probe activity, such as a port scan, where errors are generated by the target system in response to the probes. Additionally, the high dst_host_count (190) suggests that the source is scanning multiple destinations, which is typical behavior for network surveillance or probing activities.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.7903478145599365,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 83,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `duration=0` which might refer to a very short-lived connection that is not unusual for legitimate traffic, and the absence of any flags that would suggest an attack like `num_failed_logins=0`, `root_shell=0`, etc.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.472031593322754,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 84,
+      "raw_output": "Category: normal\nReasoning: The record shows typical values for a normal network connection, with no indications of an attack. Features such as `logged_in=1`, `num_failed_logins=0`, and the absence of flags like `land=0`, `wrong_fragment=0`, and `urgent=0` suggest a normal connection. Additionally, the high `same_srv_rate` and low `dst_host_serror_rate` further support this classification.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.737252950668335,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 85,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `serror_rate`, `srv_serror_rate`, and `dst_host_serror_rate`, which are indicative of a probe activity where error rates are significantly high, likely due to failed probes or scans. Additionally, the `dst_host_count` being at its maximum value (255) suggests that the host is responding to a large number of connections, typical of a probing activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.769538164138794,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 86,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both set to 255, which is an unusual and likely indicative of a port scan or IP sweep activity, common in probing attacks.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.021535873413086,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 87,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `rerror_rate` of 1.0, indicating that there were errors in responses to the source, which is typical for probing activities like port scans where the attacker sends packets to various ports and analyzes the responses. Additionally, the `dst_host_count` being at its maximum value (255) suggests that the connection was directed to a large number of destination hosts, which is characteristic of a probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.8328368663787842,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 88,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for serror_rate, srv_serror_rate, and dst_host_serror_rate, which are indicative of a probe activity, such as a port scan or IP sweep, where errors are generated during the scanning process.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.0696606636047363,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 89,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `dst_host_count` value of 255, indicating that the connection is directed at many different hosts, which is characteristic of a network probe or scan. Additionally, the `rerror_rate` is 1.0, suggesting that there is a high rate of errors received, which can occur during a probing activity as the system responds to these probes.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.6677274703979492,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 90,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The fields like 'logged_in' and 'serror_rate' are normal, indicating this is likely a legitimate connection with typical network traffic characteristics.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.125044584274292,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 91,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity such as failed logins, root shells, or unusual error rates. The high values for `dst_host_count` and `dst_host_srv_count` suggest active connections but do not indicate an attack. The `logged_in` field is set to 1, indicating that the connection was part of a legitimate session.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.5535402297973633,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 92,
+      "raw_output": "Category: DoS\nReasoning: The record shows a high `dst_bytes` value of 1, which is unusually low for a normal connection, and a very high `rerror_rate` of 0.98, indicating that the destination host is receiving a large number of errors. This combination suggests a potential Denial of Service attack where the source is overwhelming the destination with traffic, causing high error rates and potentially disrupting services.",
+      "parsed_label": "DoS",
+      "inference_time_s": 1.7614693641662598,
+      "true_label": "DoS",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 93,
+      "raw_output": "Category: Probe\nReasoning: The record shows a high `diff_srv_rate` of 1.0, indicating that the traffic is distributed across different services, which is typical of a port scan or other probing activity. Additionally, the `dst_host_count` of 255 suggests a large number of destination hosts were probed, further supporting the probe classification.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.4041593074798584,
+      "true_label": "normal",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 94,
+      "raw_output": "Category: normal\nReasoning: The record shows typical network traffic characteristics with no signs of malicious activity. Features such as `logged_in=1`, `num_failed_logins=0`, and the absence of flags indicating attacks (like `land=0`, `wrong_fragment=0`, etc.) suggest this is normal network activity.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.2946882247924805,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 95,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for 'rerror_rate' (0.92) and 'diff_srv_rate' (1.0), which indicate a significant number of different services are being probed, typical of a network probe activity. Additionally, the 'dst_host_count' value of 255 suggests a broad scan across many hosts, further supporting the classification as a probe.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.6725268363952637,
+      "true_label": "Probe",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 96,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `logged_in=1` and no failed logins, compromised accounts, or unusual rates of errors or connections.",
+      "parsed_label": "normal",
+      "inference_time_s": 0.9210126399993896,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 97,
+      "raw_output": "Category: normal\nReasoning: The record shows no signs of malicious activity; all fields indicate normal network behavior, such as `logged_in=1` and no failed logins, compromised accounts, or unusual rates of errors or connections.",
+      "parsed_label": "normal",
+      "inference_time_s": 1.0971920490264893,
+      "true_label": "normal",
+      "category": "correct_with_reasoning",
+      "correct": true
+    },
+    {
+      "sample_idx": 98,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for `dst_host_count` and `dst_host_srv_count`, both at 255, indicating a broad scan across many destination hosts and services, which is characteristic of a network probe activity.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.0677292346954346,
+      "true_label": "R2L",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    },
+    {
+      "sample_idx": 99,
+      "raw_output": "Category: Probe\nReasoning: The record shows high values for \"serror_rate\" and \"srv_serror_rate\" at 1.0, which indicate a significant number of errors in service requests, commonly seen in probing activities like port scans. Additionally, the high \"count\" value of 300 and \"dst_host_count\" of 255 suggest multiple connections to different hosts, which is typical behavior for network probes.",
+      "parsed_label": "Probe",
+      "inference_time_s": 1.7848634719848633,
+      "true_label": "DoS",
+      "category": "incorrect_with_reasoning",
+      "correct": false
+    }
+  ]
+}

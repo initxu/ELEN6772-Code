@@ -1,0 +1,156 @@
+[
+  {
+    "model": "ZS-Qwen2.5-7B",
+    "accuracy": 0.4939759036144578,
+    "precision_macro": 0.5388829907898915,
+    "recall_macro": 0.5012458946640606,
+    "f1_macro": 0.4259003487252556,
+    "train_time_s": 0.0,
+    "inference_time_s": 23.43018412590027,
+    "inference_ms_per_sample": 47.04856250180777,
+    "confusion_matrix": [
+      [
+        212,
+        0,
+        3,
+        0,
+        0
+      ],
+      [
+        97,
+        8,
+        60,
+        0,
+        0
+      ],
+      [
+        27,
+        1,
+        25,
+        0,
+        0
+      ],
+      [
+        59,
+        0,
+        5,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "per_class": {
+      "normal": {
+        "precision": 0.5367088607594936,
+        "recall": 0.986046511627907,
+        "f1": 0.6950819672131148
+      },
+      "DoS": {
+        "precision": 0.8888888888888888,
+        "recall": 0.048484848484848485,
+        "f1": 0.09195402298850575
+      },
+      "Probe": {
+        "precision": 0.26881720430107525,
+        "recall": 0.4716981132075472,
+        "f1": 0.3424657534246575
+      },
+      "R2L": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "U2R": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "n_samples": 498,
+    "model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "category": "Qwen"
+  },
+  {
+    "model": "ZS-DeepSeek-7B",
+    "accuracy": 0.15863453815261044,
+    "precision_macro": 0.10347863016871936,
+    "recall_macro": 0.20287878787878788,
+    "f1_macro": 0.08560423175234308,
+    "train_time_s": 0.0,
+    "inference_time_s": 35.95101737976074,
+    "inference_ms_per_sample": 72.1907979513268,
+    "confusion_matrix": [
+      [
+        0,
+        5,
+        0,
+        210,
+        0
+      ],
+      [
+        0,
+        23,
+        0,
+        142,
+        0
+      ],
+      [
+        0,
+        23,
+        0,
+        30,
+        0
+      ],
+      [
+        0,
+        8,
+        0,
+        56,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    "per_class": {
+      "normal": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "DoS": {
+        "precision": 0.3898305084745763,
+        "recall": 0.1393939393939394,
+        "f1": 0.20535714285714285
+      },
+      "Probe": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "R2L": {
+        "precision": 0.1275626423690205,
+        "recall": 0.875,
+        "f1": 0.22266401590457258
+      },
+      "U2R": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "n_samples": 498,
+    "model_id": "deepseek-ai/deepseek-llm-7b-chat",
+    "category": "DeepSeek"
+  }
+]
